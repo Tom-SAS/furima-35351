@@ -18,7 +18,6 @@
 
 - has_many :products
 - has_many :user_products
-- has_many :shipments
 
 ## products テーブル
 
@@ -39,17 +38,19 @@
 - belongs_to :user
 - has_one    :user_product
 
-## user_product テーブル
+## user_products テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | user            | references | null: false, foreign_key: true |
 | product         | references | null: false, foreign_key: true |
+| shipment        | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :product
+- has_one    :shipment
 
 
 ## shipment テーブル
@@ -65,5 +66,4 @@
 
 ### Association
 
-- belongs_to :user
-- belongs_to :product
+- belongs_to :user_product
