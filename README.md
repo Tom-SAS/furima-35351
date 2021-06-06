@@ -17,7 +17,8 @@
 ### Association
 
 - has_many :products
-- has_many :payments
+- has_many :user_products
+- has_many :shipments
 
 ## products テーブル
 
@@ -27,6 +28,7 @@
 | product_name     | string     | null: false, Active_hash       |
 | comment          | string     | null: false                    |
 | price            | integer    | null: false                    |
+| status_id        | integer    | null: false, Active_hash       |
 | category_id      | integer    | null: false, Active_hash       |
 | shipment_cost_id | integer    | null: false, Active_hash       |
 | religion_id      | integer    | null: false, Active_hash       |
@@ -34,10 +36,10 @@
 
 ### Association
 
-- belongs to :user
-- has_one    :user_products
+- belongs_to :user
+- has_one    :user_product
 
-## user_products テーブル
+## user_product テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
@@ -46,20 +48,20 @@
 
 ### Association
 
-- has_one :user
-- has_one :products
+- belongs_to :user
+- belongs_to :product
 
 
 ## shipment テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| post_number     | integer    | null: false                    |
+| post_number     | string     | null: false                    |
 | prefecture_id   | integer    | null: false, Active_hash       |
 | city            | string     | null: false                    |
 | number          | string     | null: false                    |
 | building        | string     |                                |
-| phone_number    | integer    | null: false                    |
+| phone_number    | string     | null: false                    |
 
 ### Association
 
