@@ -25,12 +25,12 @@
 | ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
 | product_name     | string     | null: false, Active_hash       |
-| comment          | string     | null: false                    |
+| comment          | text     | null: false                    |
 | price            | integer    | null: false                    |
 | status_id        | integer    | null: false, Active_hash       |
 | category_id      | integer    | null: false, Active_hash       |
 | shipment_cost_id | integer    | null: false, Active_hash       |
-| religion_id      | integer    | null: false, Active_hash       |
+| prefecture_id    | integer    | null: false, Active_hash       |
 | delivery_time_id | integer    | null: false, Active_hash       |
 
 ### Association
@@ -44,7 +44,6 @@
 | --------------- | ---------- | ------------------------------ |
 | user            | references | null: false, foreign_key: true |
 | product         | references | null: false, foreign_key: true |
-| shipment        | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -53,16 +52,17 @@
 - has_one    :shipment
 
 
-## shipment テーブル
+## shipments テーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| post_number     | string     | null: false                    |
-| prefecture_id   | integer    | null: false, Active_hash       |
-| city            | string     | null: false                    |
-| number          | string     | null: false                    |
-| building        | string     |                                |
-| phone_number    | string     | null: false                    |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| user_product    | references    | null: false, foreign_key:true  |
+| post_number      | string     | null: false                    |
+| prefecture_id    | integer    | null: false, Active_hash       |
+| city             | string     | null: false                    |
+| number           | string     | null: false                    |
+| building         | string     |                                |
+| phone_number     | string     | null: false                    |
 
 ### Association
 
