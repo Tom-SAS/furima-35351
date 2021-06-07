@@ -25,7 +25,7 @@
 | ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
 | product_name     | string     | null: false, Active_hash       |
-| comment          | text     | null: false                    |
+| comment          | text       | null: false                    |
 | price            | integer    | null: false                    |
 | status_id        | integer    | null: false, Active_hash       |
 | category_id      | integer    | null: false, Active_hash       |
@@ -56,7 +56,7 @@
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| user_product    | references    | null: false, foreign_key:true  |
+| user_product     | references | null: false, foreign_key:true  |
 | post_number      | string     | null: false                    |
 | prefecture_id    | integer    | null: false, Active_hash       |
 | city             | string     | null: false                    |
