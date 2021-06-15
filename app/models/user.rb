@@ -8,8 +8,10 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates :password, format: { with: PASSWORD_REGEX }
-  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥々ー]/ } do
+    validates :first_name
+    validates :last_name
+  end
   validates :first_furigana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :last_furigana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :birthday, presence: true
