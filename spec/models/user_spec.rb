@@ -55,7 +55,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include 'Password is invalid'
       end
-      it 'password_confirmationが一致しない' do
+      it 'password_confirmationが空の場合' do
         @user.password_confirmation = ''
         @user.valid?
         expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"

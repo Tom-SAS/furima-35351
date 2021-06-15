@@ -12,8 +12,11 @@ class User < ApplicationRecord
     validates :first_name
     validates :last_name
   end
-  validates :first_furigana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :last_furigana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
+  with_options presence: true, format: { with: /\A[ァ-ヶー－]+\z/ } do
+    validates :first_furigana
+    validates :last_furigana
+  end
+  
   validates :birthday, presence: true
   # has_many :products
   # has_many :user_products
