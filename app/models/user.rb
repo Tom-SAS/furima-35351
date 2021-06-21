@@ -18,6 +18,6 @@ class User < ApplicationRecord
   end
   
   validates :birthday, presence: true
-  # has_many :products
+  has_many :products
   # has_many :user_products
 end
