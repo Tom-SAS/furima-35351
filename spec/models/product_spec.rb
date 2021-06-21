@@ -35,12 +35,12 @@ RSpec.describe Product, type: :model do
       it '販売価格が300円より小さいと出品できない' do
         @product.price = 100
         @product.valid?
-        expect(@product.errors.full_messages).to include "Price must be greater than 300"
+        expect(@product.errors.full_messages).to include 'Price must be greater than 300'
       end
       it '販売価格が9,999,999円より大きいと出品できない' do
-        @product.price = 100000000
+        @product.price = 100_000_000
         @product.valid?
-        expect(@product.errors.full_messages).to include "Price must be less than 9999999"
+        expect(@product.errors.full_messages).to include 'Price must be less than 9999999'
       end
       it 'カテゴリーが空では出品できない' do
         @product.category_id = ''
@@ -70,27 +70,27 @@ RSpec.describe Product, type: :model do
       it 'カテゴリーが--では出品できない' do
         @product.category_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include "Category must be other than 1"
+        expect(@product.errors.full_messages).to include 'Category must be other than 1'
       end
       it '配送料の負担が--では出品できない' do
         @product.shipment_cost_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include "Shipment cost must be other than 1"
+        expect(@product.errors.full_messages).to include 'Shipment cost must be other than 1'
       end
       it '発送元の地域が--では出品できない' do
         @product.prefecture_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include "Prefecture must be other than 1"
+        expect(@product.errors.full_messages).to include 'Prefecture must be other than 1'
       end
       it '発送までの日数が--では出品できない' do
         @product.delivery_time_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include "Delivery time must be other than 1"
+        expect(@product.errors.full_messages).to include 'Delivery time must be other than 1'
       end
       it '商品の状態が--では出品できない' do
         @product.status_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include "Status must be other than 1"
+        expect(@product.errors.full_messages).to include 'Status must be other than 1'
       end
     end
   end

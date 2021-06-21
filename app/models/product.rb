@@ -28,5 +28,5 @@ class Product < ApplicationRecord
     validates :delivery_time_id
   end
 
-  validates :price, numericality: { only_integer:true, greater_than:300,less_than: 9999999 }
+  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
 end
