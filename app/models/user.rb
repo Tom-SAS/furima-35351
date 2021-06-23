@@ -16,8 +16,8 @@ class User < ApplicationRecord
     validates :first_furigana
     validates :last_furigana
   end
-  
+
   validates :birthday, presence: true
-  # has_many :products
+  has_many :products
   # has_many :user_products
 end

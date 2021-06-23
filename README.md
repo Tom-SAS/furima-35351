@@ -24,7 +24,7 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
-| name             | string     | null: false, Active_hash       |
+| name             | string     | null: false                    |
 | comment          | text       | null: false                    |
 | price            | integer    | null: false                    |
 | status_id        | integer    | null: false, Active_hash       |
