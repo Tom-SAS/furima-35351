@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   
-  before_action :authenticate_user!, only: [:new, :create, :edit]
-  before_action :set_product, only: [:show, :edit, :update, :move_to_index]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update]
   before_action :move_to_index, except: [:index, :new, :show, :create]
 
   def index
@@ -48,7 +48,6 @@ class ProductsController < ApplicationController
   end
 
   def move_to_index
-    @product = set_product
     redirect_to action: :index unless current_user.id == @product.user.id
   end
 end
