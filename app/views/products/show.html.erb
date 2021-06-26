@@ -9,7 +9,7 @@
     <div class="item-img-content">
       <%= image_tag @product.image ,class:"item-box-img" %>
       
-      <% if @user_products.present?%>
+      <%# <% if @user_products.present?%> 
       <div class="sold-out">
         <span>Sold Out!!</span>
       </div>
@@ -24,7 +24,7 @@
         <%= "配送料負担" %>
       </span>
     </div>
-    <% if user_signed_in? && @product.user.id == current_user.id%>
+    <% if @product.user.id == current_user.id%>
     <%= link_to "商品の編集", "#", method: :get, class:"item-red-btn" %>
     <p class="or-text">or</p>
     <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
@@ -34,7 +34,7 @@
     <% end %>
  
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <span><%= @product.comment %></span>
     </div>
     <table class="detail-table">
       <tbody>
