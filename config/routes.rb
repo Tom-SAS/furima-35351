@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   
   root to: 'products#index'
   resources :products
-  # resources :products, only:[:new, :create] do
-  #   resources :user_products, only:[:new]
-  # end
+
 
 end
