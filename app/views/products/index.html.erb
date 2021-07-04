@@ -125,7 +125,7 @@
           <%= link_to product_path(product.id) do %>
           <div class='item-img-content'>
             <%= image_tag product.image, class: "item-img" if product.image.attached? %>
-            <% if @user_products == nil?%>
+            <% if product.user_product.present? %>
               <div class='sold-out'>
                <span>Sold Out!!</span>
               </div>
