@@ -9,11 +9,11 @@
     <div class="item-img-content">
       <%= image_tag @product.image ,class:"item-box-img" %>
       
-      <%# <% if @user_products.present?%> 
-      <%# <div class="sold-out">
-        <span>Sold Out!!</span>
-      </div> %>
-      <%# <% end  %>
+      <% if @product.user_product.present?%> 
+        <div class="sold-out">
+          <span>Sold Out!!</span>
+        </div> 
+      <% end  %>
       
     </div>
     <div class="item-price-box">
@@ -24,14 +24,14 @@
         <%= @product.shipment_cost.name %>
       </span>
     </div>
-    <% if user_signed_in?%>
-      <% if @product.user.id == current_user.id%>
+    <% if user_signed_in? && @product.user_product.nil? %>
+      <% if @product.user.id == current_user.id %>
       <%= link_to "商品の編集", edit_product_path(@product.id), method: :get, class:"item-red-btn" %>
       <p class="or-text">or</p>
       <%= link_to "削除", product_path(@product.id), method: :delete, class:"item-destroy" %>
       <% else %>
 
-      <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+      <%= link_to "購入画面に進む", product_user_products_path(@product.id), method: :get ,class:"item-red-btn"%>
       <% end %>
     <% end %>
  

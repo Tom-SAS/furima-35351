@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   belongs_to :prefecture
   belongs_to :delivery_time
   has_one_attached :image
+  has_one :user_product
 
   with_options presence: true do
     validates :image
