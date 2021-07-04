@@ -1,7 +1,7 @@
 class UserProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_product, only: [:index, :create]
-  before_action :move_to_index, only: [:index, :create]
+  before_action :move_to_index
 
   def index
     @user_product_shipment = UserProductShipment.new
