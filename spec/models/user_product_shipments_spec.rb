@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe UserProduct, type: :model do
   before do
-    @user_product_shipment = FactoryBot.build(:user_product_shipment)
+    user = FactoryBot.create(:user)
+    product = FactoryBot.create(:product)
+    @user_product_shipment = FactoryBot.build(:user_product_shipment, user_id: user.id, product_id: product.id)
+    sleep(0.1)
   end
 
   describe '商品購入' do
@@ -45,6 +48,21 @@ RSpec.describe UserProduct, type: :model do
         @user_product_shipment.phone_number = ''
         @user_product_shipment.valid?
         expect(@user_product_shipment.errors.full_messages).to include "Phone number can't be blank"
+      end
+      it '電話番号が12桁以上では購入できない' do
+        @user_product_shipment.phone_number = '1234567891011'
+        @user_product_shipment.valid?
+        expect(@user_product_shipment.errors.full_messages).to include "Phone number is invalid"
+      end
+      it '電話番号が全角数字では購入できない' do
+        @user_product_shipment.phone_number = '０９０１１１１２２２２'
+        @user_product_shipment.valid?
+        expect(@user_product_shipment.errors.full_messages).to include "Phone number is invalid"
+      end
+      it '電話番号が半角英数字では購入できない' do
+        @user_product_shipment.phone_number = '090aaaa1111'
+        @user_product_shipment.valid?
+        expect(@user_product_shipment.errors.full_messages).to include "Phone number is invalid"
       end
       it 'tokenが空では購入できない' do
         @user_product_shipment.token = ''

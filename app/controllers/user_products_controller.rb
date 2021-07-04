@@ -21,7 +21,7 @@ class UserProductsController < ApplicationController
   private
 
   def user_product_shipment_params
-    params.require(:user_product_shipment).permit(:post_number, :prefecture_id, :city, :number, :building, :phone_number, :user_id, :product_id)
+    params.require(:user_product_shipment).permit(:post_number, :prefecture_id, :city, :number, :building, :phone_number)
           .merge(user_id: current_user.id, product_id: @product.id, token: params[:token])
   end
 

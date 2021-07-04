@@ -7,7 +7,7 @@ class UserProductShipment
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :city
     validates :number
-    validates :phone_number
+    validates :phone_number, format: { with: /\A\d{10,11}\z/ }
     validates :user_id
     validates :product_id
     validates :token
