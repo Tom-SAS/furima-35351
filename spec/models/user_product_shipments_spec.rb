@@ -30,7 +30,7 @@ RSpec.describe UserProduct, type: :model do
         expect(@user_product_shipment.errors.full_messages).to include 'Post number is invalid. Include hyphen(-)'
       end
       it '県名が空では購入できない' do
-        @user_product_shipment.prefecture_id = '1'
+        @user_product_shipment.prefecture_id = 1
         @user_product_shipment.valid?
         expect(@user_product_shipment.errors.full_messages).to include "Prefecture can't be blank"
       end
