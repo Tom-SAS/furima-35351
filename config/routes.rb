@@ -7,4 +7,5 @@ Rails.application.routes.draw do
         resources :user_products, only:[:index, :create]
   end
 
+
 end
