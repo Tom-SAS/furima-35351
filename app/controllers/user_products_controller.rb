@@ -9,9 +9,9 @@ class UserProductsController < ApplicationController
 
   def create
     @user_product_shipment = UserProductShipment.new(user_product_shipment_params)
+    binding.pry
     if @user_product_shipment.valid?
       pay_item
-      binding.pry
       @user_product_shipment.save
       redirect_to root_path
     else
